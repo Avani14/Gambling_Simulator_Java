@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class GamblingSimulator {
 	public static byte initialValue  = 100;
@@ -9,12 +10,13 @@ public class GamblingSimulator {
 	public static byte unluckyMonth =1;
 	public static byte luckyDay = 1;
 	public static byte luckyMonth = 1;
-	
 	public static byte max  = 100;
+	public static boolean option;
 	public static void everyDayGamble()
 	{
 		byte temp = initialValue;
 		byte result;
+		
 		while(initialValue>0)
 		{
 			result = (byte)(Math.random()*10);
@@ -24,6 +26,18 @@ public class GamblingSimulator {
 				initialValue+=1;
 				if(initialValue == 127 || initialValue == (byte)(temp + temp/2))
 				{
+					break;
+				}
+				Scanner sc = new Scanner(System.in);
+				System.out.println("Enter true to continue and false to not continue gambling...");
+				Boolean b = sc.nextBoolean();
+				if(b)
+				{
+					System.out.println("We will continue gambling...");
+					
+				}
+				else {
+					System.out.println("We will not continue gambling...");
 					break;
 				}
 				
