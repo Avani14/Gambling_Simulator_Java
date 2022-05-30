@@ -3,6 +3,7 @@ public class GamblingSimulator {
 	public static byte initialValue  = 100;
 	public static byte bet  = 1;
 	public static byte day  = 20;
+	public static byte month  = 1;
 	public static void everyDayGamble()
 	{
 		byte temp = initialValue;
@@ -28,18 +29,33 @@ public class GamblingSimulator {
 				}
 			}
 			day++;
+			if(day>30)
+			{
+				day = 1;
+				if(month>12)
+				{
+					month=1;
+				}
+				else {
+				month++;
+				}
+			}
 			if(day>20)
 			{
 				if(initialValue>temp)
 				{
-					System.out.println("You won $"+initialValue+" on day "+day);
+					System.out.println("You won on day "+day+" of month "+month+" the current balance is $"+initialValue);
+					
 				}
 				else
 				{
-					System.out.println("You lost on day "+day+" your current balance is "+initialValue);
+					System.out.println("You lost on day "+day+" of month "+month+" the current balance is $"+initialValue);
+					
 				}
 			}
 		}
+
+		System.out.println("-------The Final Result ---------");
 		if(initialValue>temp)
 		{
 			System.out.println("You won $"+initialValue);
