@@ -2,7 +2,7 @@
 public class GamblingSimulator {
 	public static byte initialValue  = 100;
 	public static byte bet  = 1;
-	
+	public static byte day  = 20;
 	public static void everyDayGamble()
 	{
 		byte temp = initialValue;
@@ -25,6 +25,18 @@ public class GamblingSimulator {
 				if(initialValue == (byte)temp/2)
 				{
 					break;
+				}
+			}
+			day++;
+			if(day>20)
+			{
+				if(initialValue>temp)
+				{
+					System.out.println("You won $"+initialValue+" on day "+day);
+				}
+				else
+				{
+					System.out.println("You lost on day "+day+" your current balance is "+initialValue);
 				}
 			}
 		}
