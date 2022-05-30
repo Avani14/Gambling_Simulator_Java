@@ -4,6 +4,13 @@ public class GamblingSimulator {
 	public static byte bet  = 1;
 	public static byte day  = 20;
 	public static byte month  = 1;
+	public static byte min  = 100;
+	public static byte unluckyDay =1 ;
+	public static byte unluckyMonth =1;
+	public static byte luckyDay = 1;
+	public static byte luckyMonth = 1;
+	
+	public static byte max  = 100;
 	public static void everyDayGamble()
 	{
 		byte temp = initialValue;
@@ -19,6 +26,7 @@ public class GamblingSimulator {
 				{
 					break;
 				}
+				
 			}
 			else 
 			{
@@ -53,6 +61,20 @@ public class GamblingSimulator {
 					
 				}
 			}
+			
+			// Maximum and minimum values
+			if(initialValue>max)
+			{
+				max = initialValue;
+				luckyDay = day;
+				luckyMonth = month;
+			}
+			if(initialValue<min)
+			{
+				min = initialValue;
+				unluckyDay = day;
+				unluckyMonth = month;
+			}
 		}
 
 		System.out.println("-------The Final Result ---------");
@@ -62,8 +84,10 @@ public class GamblingSimulator {
 		}
 		else
 		{
-			System.out.println("You lost your current balance is "+initialValue);
+			System.out.println("You lost your current balance is $"+initialValue);
 		}
+		System.out.println("The luckiest day was "+luckyDay+" of month "+luckyMonth+" you won $"+max);
+		System.out.println("The unluckiest day was "+unluckyDay+" of month "+unluckyMonth+" you won only $"+min);
 		
 	}
 	
