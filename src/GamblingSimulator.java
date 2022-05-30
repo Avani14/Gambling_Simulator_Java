@@ -10,14 +10,27 @@ public class GamblingSimulator {
 		while(initialValue>0)
 		{
 			result = (byte)(Math.random()*10);
-			if(result>5)
+			
+			if(result >= 5)
 			{
 				initialValue+=1;
+				if(initialValue == 127)
+				{
+					break;
+				}
 			}
 			else 
 			{
 				initialValue-=1;
 			}
+		}
+		if(initialValue>temp)
+		{
+			System.out.println("You won $"+initialValue);
+		}
+		else
+		{
+			System.out.println("You lost");
 		}
 		
 	}
@@ -25,7 +38,7 @@ public class GamblingSimulator {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("This is a Gambling Simulator!!");
-		
+		everyDayGamble();
 	}
 
 }
