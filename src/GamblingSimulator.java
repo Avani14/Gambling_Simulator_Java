@@ -14,7 +14,7 @@ public class GamblingSimulator {
 			if(result >= 5)
 			{
 				initialValue+=1;
-				if(initialValue == 127)
+				if(initialValue == 127 || initialValue == (byte)(temp + temp/2))
 				{
 					break;
 				}
@@ -22,6 +22,10 @@ public class GamblingSimulator {
 			else 
 			{
 				initialValue-=1;
+				if(initialValue == (byte)temp/2)
+				{
+					break;
+				}
 			}
 		}
 		if(initialValue>temp)
@@ -30,7 +34,7 @@ public class GamblingSimulator {
 		}
 		else
 		{
-			System.out.println("You lost");
+			System.out.println("You lost your current balance is "+initialValue);
 		}
 		
 	}
